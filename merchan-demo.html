@@ -7,6 +7,18 @@
     <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
     <script src="assets/js/merchan-demo/sketch.js"></script>
     <script src="assets/js/merchan-demo/qrCode/qrcode.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Holtwood+One+SC" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Grand+Hotel" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Rozha+One" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Arizonia" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Cedarville+Cursive" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Mr+Bedfort" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Bilbo+Swash+Caps" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Yesteryear" rel="stylesheet" />
   </head>
   <body class="subpage">
     <!-- Header -->
@@ -224,46 +236,159 @@
       <article id="artigo">
         <div id="cnvs"></div>
         <script src="assets/js/merchan-demo/demo.js"></script>
-        <div id="caixa-demo">
-          <h4>Dados cadastrados no nosso banco de dados:</h4>
-          Insira seus dados para simular o que viria do nosso banco de cadastros
-          <div id="campo">
-            <label for="titulo" id="campoLabel">Titulo</label>
-            <input type="text" name="titulo" id="campoTituloInput" value="" placeholder=" A pizza mais saborosa" />
-          </div>
-          <div id="campo">
-            <label for="nome" id="campoLabel">Nome da Pizzaria</label>
-            <input type="text" name="nome" id="campoNomeInput" value="" placeholder=" Bisão Dourado" />
-          </div>
-          <div id="campo">
-            <label for="rodape1" id="campoLabel">Rodapé linha 1</label>
-            <input
-              type="text"
-              name="rodape1"
-              id="campoRodapeInput1"
-              value=""
-              placeholder="          Preços promocionais no aplicativo EATZA"
-            />
-          </div>
-          <div id="campo">
-            <label for="rodape2" id="campoLabel">Rodapé linha 2</label>
-            <input
-              type="text"
-              name="rodape2"
-              id="campoRodapeInput2"
-              value=""
-              placeholder="     Use o cupom #EATZABISÃO para entrega grátis"
-            />
-          </div>
-          <div id="campo">
-            <label for="QR" id="campoLabel">Conteúdo do QR-code</label>
-            <input type="text" name="QR" id="campoQR" value="" placeholder="eatza-esqueleto3.web.app/descobrir/01" />
-          </div>
-        </div>
-
         <footer>
           <p id="botDownload" class="button">download</p>
         </footer>
+        <div id="caixa-demo">
+          <p>
+            <strong>Dados do nosso banco de dados/estilos pré definidos:</strong> <br />
+            Insira seus dados para simular nosso banco de dados e, se desejar, customize os textos, fontes e cores.
+          </p>
+
+          <div class="row">
+            <div class="9u 12u$(small) centro demoDiv">
+              <div class="Bcol">
+                <label for="titulo" id="campoLabel">Titulo</label>
+                <input
+                  type="text"
+                  name="titulo"
+                  id="campoTituloInput"
+                  class="demoInut"
+                  value=""
+                  placeholder=" A pizza mais saborosa"
+                />
+              </div>
+            </div>
+            <div class="2u 12u$(small) centro demoDiv">
+              <div class="Bcol">
+                <label for="tamanhoTitulo" id="campoLabel">Tamanho</label>
+                <input
+                  type="number"
+                  name="tamanhoTitulo"
+                  id="campoTamanhoTitulo"
+                  value="70"
+                  placeholder="eatza-esqueleto3.web.app/descobrir/01"
+                  min="1"
+                  max="300"
+                />
+              </div>
+            </div>
+            <div class="1u 12u$(small) centro demoDiv">
+              <label for="corTitulo" id="campoLabel">Cor</label>
+              <input type="color" name="corTitulo" id="campoCorTitulo" value="#000000" />
+            </div>
+          </div>
+          <hr class="noSpace" />
+
+          <div class="row">
+            <div class="9u 12u$(small) centro demoDiv">
+              <div class="Bcol">
+                <label for="nome" id="campoLabel">Nome da Pizzaria</label>
+                <input
+                  type="text"
+                  name="nome"
+                  id="campoNomeInput"
+                  class="demoInut"
+                  value=""
+                  placeholder=" BISÃO DOURADO"
+                />
+              </div>
+            </div>
+            <div class="2u 12u$(small) centro demoDiv">
+              <div class="Bcol">
+                <label for="tamanho" id="campoLabel">Tamanho</label>
+                <input
+                  type="number"
+                  name="tamanho"
+                  id="campoTamanho"
+                  value="70"
+                  placeholder="eatza-esqueleto3.web.app/descobrir/01"
+                  min="1"
+                  max="300"
+                />
+              </div>
+            </div>
+            <div class="1u 12u$(small) centro demoDiv">
+              <label for="corNome" id="campoLabel">Cor</label>
+              <input type="color" name="corNome" id="campoCorNome" value="#ffffff" />
+            </div>
+          </div>
+          <hr class="noSpace" />
+
+          <div class="row">
+            <div class="5u 12u$(small) centro demoDiv">
+              <label for="rodape1" id="campoLabel">Rodapé linha 1</label>
+              <input
+                type="text"
+                name="rodape1"
+                id="campoRodapeInput1"
+                value=""
+                placeholder="          Preços promocionais no aplicativo EATZA"
+              />
+            </div>
+            <div class="4u 12u$(small) centro demoDiv">
+              <label for="rodape2" id="campoLabel">Rodapé linha 2</label>
+              <input
+                type="text"
+                name="rodape2"
+                id="campoRodapeInput2"
+                value=""
+                placeholder="     Use o cupom #EATZABISÃO para entrega grátis"
+              />
+            </div>
+            <div class="2u 12u$(small) centro demoDiv">
+              <div class="Bcol">
+                <label for="tamanhoRodape" id="campoLabel">Tamanho</label>
+                <input
+                  type="number"
+                  name="tamanhoRodape"
+                  id="campoTamanhoRodape"
+                  value="30"
+                  placeholder="eatza-esqueleto3.web.app/descobrir/01"
+                  min="1"
+                  max="300"
+                />
+              </div>
+            </div>
+            <div class="1u 12u$(small) centro demoDiv">
+              <label for="corRodape" id="campoLabel">Cor</label>
+              <input type="color" name="corRodape" id="campoCorRodape" value="#000000" />
+            </div>
+          </div>
+          <hr class="noSpace" />
+
+          <div class="row">
+            <div class="6u 12u$(small) centro demoDiv">
+              <div class="select-wrapper">
+                <label for="fonts" id="campoLabel">Selecione uma fonte</label>
+                <select name="fonts" id="campoFonts">
+                  <option value="Georgia">Georgia (serif)</option>
+                  <option value="Rozha One">Rozha One (serif gorda)</option>
+                  <option value="Helvetica">Helvetica (sans serif)</option>
+                  <option value="Arvo">Arvo (serif quadrada)</option>
+                  <option value="Bree Serif" selected="selected">Bree Serif (serif quadrada larga)</option>
+                  <option value="Holtwood One SC">Holtwood One SC (serif quadrada muito larga)</option>
+                  <option value="Arizonia">Arizonia (traço rápido)</option>
+                  <option value="Bilbo Swash Caps">Bilbo Swash Caps (forma estilizada)</option>
+                  <option value="Yesteryear">Yesteryear (cursiva larga)</option>
+                  <option value="Mr Bedfort">Mr Bedfort (cursiva estilizada)</option>
+                  <option value="Cedarville Cursive">Cedarville Cursive (rabisco cursivo)</option>
+                  <option value="Nanum Brush Script">Nanum Brush Script (rabisco)</option>
+                  <option value="VT323">VT323 (8bits)</option>
+                  <option value="Grand Hotel">Grand Hotel (roller coaster)</option>
+                </select>
+              </div>
+            </div>
+            <div class="5u 12u$(small) centro demoDiv">
+              <label for="QR" id="campoLabel">Conteúdo do QR-code</label>
+              <input type="text" name="QR" id="campoQR" value="" placeholder="eatza-esqueleto3.web.app/descobrir/01" />
+            </div>
+            <div class="1u 12u$(small) centro demoDiv">
+              <label for="cor" id="campoLabel">margens</label>
+              <input type="color" name="cor" id="campoCor" value="#ee794b" />
+            </div>
+          </div>
+        </div>
       </article>
     </main>
 

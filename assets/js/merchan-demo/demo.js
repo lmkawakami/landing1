@@ -3,9 +3,21 @@ let sketch = function (p) {
   const laranja = p.color(238, 121, 75);
   const cor1 = laranja;
   let cnv;
-  let logo;
+  let logo, path;
   let photo;
-  let inputNome, inputTitulo, inputRodape1, inputRodape2, inputQR;
+  let inputTitulo,
+    inputTamanhoTitulo,
+    inputCorTitulo,
+    inputNome,
+    inputTamanhoNome,
+    inputCorNome,
+    inputRodape1,
+    inputRodape2,
+    inputTamanhoRodape,
+    inputCorRodape,
+    inputQR,
+    inputFonts,
+    inputCorMargens;
 
   p.download = function () {
     p.saveCanvas(cnv, "myCanvas", "jpg");
@@ -13,50 +25,60 @@ let sketch = function (p) {
 
   p.preload = function () {
     // logo = p.loadImage("images/Logo-vermelho.svg");
-    logo = p.loadImage("images/Logo-laranja.svg");
+    logo = p.loadImage("images/Logo-branco.svg");
     // logo = p.loadImage("images/Logo-branco.svg");
     photo = p.loadImage("images/4-slices-of-pizza-740x740.jpg");
   };
 
   p.setup = function () {
-    cnv = p.createCanvas(740, 900);
+    cnv = p.createCanvas(740, 900, p.SVG);
     cnv.position(0, 0, "static");
     p.background(cor1);
 
-    inputNome = p.select("#campoNomeInput");
-    inputNome.value(inputNome.elt.placeholder);
-
     inputTitulo = p.select("#campoTituloInput");
     inputTitulo.value(inputTitulo.elt.placeholder);
+    inputTamanhoTitulo = p.select("#campoTamanhoTitulo");
+    inputCorTitulo = p.select("#campoCorTitulo");
+
+    inputNome = p.select("#campoNomeInput");
+    inputNome.value(inputNome.elt.placeholder);
+    inputTamanhoNome = p.select("#campoTamanho");
+    inputCorNome = p.select("#campoCorNome");
 
     inputRodape1 = p.select("#campoRodapeInput1");
     inputRodape1.value(inputRodape1.elt.placeholder);
     inputRodape2 = p.select("#campoRodapeInput2");
     inputRodape2.value(inputRodape2.elt.placeholder);
+    inputTamanhoRodape = p.select("#campoTamanhoRodape");
+    inputCorRodape = p.select("#campoCorRodape");
 
     inputQR = p.select("#campoQR");
     inputQR.value(inputQR.elt.placeholder);
+
+    inputFonts = p.select("#campoFonts");
+
+    inputCorMargens = p.select("#campoCor");
 
     bot_download = p.select("#botDownload");
     bot_download.mousePressed(p.download);
     p.textSize(70);
     p.fill(cor1);
-    p.textFont("Helvetica");
   };
 
   p.draw = function () {
-    p.background(cor1);
+    p.textFont(inputFonts.elt.value);
+    p.background(p.color(inputCorMargens.elt.value));
     p.image(photo, 0, 80);
-    p.textSize(75);
-    p.fill(255);
+    p.textSize(+inputTamanhoNome.elt.value);
+    p.fill(p.color(inputCorNome.elt.value));
     nome = inputNome.value();
     p.text(nome, 0, 793);
-    p.textSize(70);
-    p.fill(0);
+    p.textSize(+inputTamanhoTitulo.elt.value);
+    p.fill(p.color(inputCorTitulo.elt.value));
     titulo = inputTitulo.value();
     p.text(titulo, 0, 65);
-    p.fill(0);
-    p.textSize(30);
+    p.fill(p.color(inputCorRodape.elt.value));
+    p.textSize(+inputTamanhoRodape.elt.value);
     rodape1 = inputRodape1.value();
     p.text(rodape1, 0, 853);
     rodape2 = inputRodape2.value();
@@ -70,7 +92,9 @@ let sketch = function (p) {
     const fundo = p.color(100, 100, 100, 50);
     const frente = p.color(255, 255, 255, 255);
     var padding = 5;
-    drawQR(inputQR.elt.value, x, y, size, padding, fundo, frente);
+    if (inputQR.elt.value != "") {
+      drawQR(inputQR.elt.value, x, y, size, padding, fundo, frente);
+    }
   };
 
   // ------------------------------------------------------------------
@@ -110,3 +134,20 @@ let sketch = function (p) {
   }
 };
 new p5(sketch, window.document.getElementById("cnvs"));
+
+function simpleStringify(object) {
+  var simpleObject = {};
+  for (var prop in object) {
+    if (!object.hasOwnProperty(prop)) {
+      continue;
+    }
+    if (typeof object[prop] == "object") {
+      continue;
+    }
+    if (typeof object[prop] == "function") {
+      continue;
+    }
+    simpleObject[prop] = object[prop];
+  }
+  return JSON.stringify(simpleObject); // returns cleaned up JSON
+}

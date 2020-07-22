@@ -20,7 +20,7 @@
   --placeholder: #e5d6c4; */
 
   --bordas: #fca684;
-  --fundo: rgb(238, 121, 75);
+  --fundo: #ee794b;
   --bot-alt: #ca8c73;
   --bot-spc: #aa5f42;
   --placeholder: #ffd0bd;
@@ -2151,6 +2151,8 @@ label {
 }
 
 input[type="text"],
+input[type="number"],
+/* input[type="color"], */
 input[type="password"],
 input[type="email"],
 input[type="tel"],
@@ -2173,6 +2175,8 @@ textarea {
 }
 
 input[type="text"]:invalid,
+input[type="number"]:invalid,
+input[type="color"]:invalid,
 input[type="password"]:invalid,
 input[type="email"]:invalid,
 input[type="tel"]:invalid,
@@ -2182,6 +2186,8 @@ textarea:invalid {
 }
 
 input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="color"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus,
 input[type="tel"]:focus,
@@ -2225,6 +2231,8 @@ textarea:focus {
 }
 
 input[type="text"],
+input[type="number"],
+input[type="color"],
 input[type="password"],
 input[type="email"],
 select {
@@ -3474,4 +3482,12 @@ main {
   width: 780px;
   padding: 20px;
   border: 1px solid var(--fundo);
+  background-color: #ee794b1a;
+}
+
+.noSpace {
+  margin-top: 0.25em;
+  margin-bottom: 0.25;
+  padding-top: 0;
+  padding-bottom: 0;
 }
