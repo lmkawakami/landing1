@@ -20,7 +20,7 @@ let sketch = function (p) {
     inputCorMargens;
 
   p.download = function () {
-    p.saveCanvas(cnv, "myCanvas", "jpg");
+    p.saveCanvas(cnv, "divulgação", "jpg");
   };
 
   p.preload = function () {
